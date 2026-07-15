@@ -1,5 +1,5 @@
 import createMiddleware from 'next-intl/middleware';
-import { routing } from './src/i18n/routing';
+import { routing } from './i18n/routing';
 
 // FR-002: root URL redirects based on (a) saved preference, (b) browser
 // Accept-Language, (c) default English — in that order. next-intl's
