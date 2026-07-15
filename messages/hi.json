@@ -1,0 +1,38 @@
+{
+  "Nav": {
+    "home": "होम",
+    "platform": "प्लेटफ़ॉर्म",
+    "solutions": "समाधान",
+    "why": "सर्पंच मित्र क्यों",
+    "pricing": "मूल्य निर्धारण",
+    "resources": "संसाधन",
+    "about": "हमारे बारे में",
+    "bookDemo": "डेमो बुक करें"
+  },
+  "Home": {
+    "heroTitle": "सर्पंच मित्र",
+    "heroSubtitle": "पंचायत नेताओं और निर्वाचन क्षेत्र कार्यालयों के लिए डिजिटल गवर्नेंस इंफ्रास्ट्रक्चर।",
+    "ctaBookDemo": "डेमो बुक करें",
+    "ctaLearnMore": "और जानें"
+  },
+  "Footer": {
+    "neutralityNote": "सर्पंच मित्र राजनीतिक रूप से तटस्थ इंफ्रास्ट्रक्चर है।",
+    "rightsReserved": "सर्वाधिकार सुरक्षित।"
+  },
+  "LanguageSwitcher": {
+    "label": "भाषा"
+  },
+  "Newsletter": {
+    "title": "अपडेट रहें",
+    "emailLabel": "ईमेल पता",
+    "submit": "सब्सक्राइब करें",
+    "successMessage": "अपनी सदस्यता की पुष्टि के लिए अपना इनबॉक्स देखें।"
+  },
+  "Contact": {
+    "title": "संपर्क करें",
+    "nameLabel": "नाम",
+    "emailLabel": "ईमेल",
+    "messageLabel": "संदेश",
+    "submit": "भेजें"
+  }
+}

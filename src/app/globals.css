@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * FR-008: Telugu and Devanagari via Noto Sans Telugu / Noto Sans Devanagari
+ * with no font-fallback tofu on any supported device.
+ * Replace the src paths below once the actual font files are added to
+ * /public/fonts (self-hosted, so we don't depend on a third-party CDN
+ * for a mobile-first, 4G-first audience — see NFR-01/NFR-07).
+ */
+@font-face {
+  font-family: 'Noto Sans Telugu';
+  src: url('/fonts/NotoSansTelugu-Regular.woff2') format('woff2');
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Devanagari';
+  src: url('/fonts/NotoSansDevanagari-Regular.woff2') format('woff2');
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+:root {
+  --color-governance-navy: #0b2545;
+  --color-karyakarta-saffron: #f2a93b;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: var(--color-governance-navy);
+}

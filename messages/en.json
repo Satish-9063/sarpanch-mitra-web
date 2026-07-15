@@ -1,0 +1,38 @@
+{
+  "Nav": {
+    "home": "Home",
+    "platform": "Platform",
+    "solutions": "Solutions",
+    "why": "Why Sarpanch Mitra",
+    "pricing": "Pricing",
+    "resources": "Resources",
+    "about": "About",
+    "bookDemo": "Book a Demo"
+  },
+  "Home": {
+    "heroTitle": "Sarpanch Mitra",
+    "heroSubtitle": "Digital governance infrastructure for panchayat leaders and constituency offices.",
+    "ctaBookDemo": "Book a Demo",
+    "ctaLearnMore": "Learn more"
+  },
+  "Footer": {
+    "neutralityNote": "Sarpanch Mitra is politically neutral infrastructure.",
+    "rightsReserved": "All rights reserved."
+  },
+  "LanguageSwitcher": {
+    "label": "Language"
+  },
+  "Newsletter": {
+    "title": "Stay updated",
+    "emailLabel": "Email address",
+    "submit": "Subscribe",
+    "successMessage": "Check your inbox to confirm your subscription."
+  },
+  "Contact": {
+    "title": "Contact us",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "messageLabel": "Message",
+    "submit": "Send"
+  }
+}
