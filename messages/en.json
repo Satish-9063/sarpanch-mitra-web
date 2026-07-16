@@ -34,5 +34,15 @@
     "emailLabel": "Email",
     "messageLabel": "Message",
     "submit": "Send"
+  },
+  "Feedback": {
+    "trigger": "Feedback",
+    "triggerLabel": "Open feedback widget",
+    "widgetLabel": "Share your feedback",
+    "messageLabel": "Your feedback (optional)",
+    "submit": "Send",
+    "cancel": "Cancel",
+    "close": "Close",
+    "successMessage": "Thank you for your feedback!"
   }
 }

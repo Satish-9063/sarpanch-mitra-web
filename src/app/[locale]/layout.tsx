@@ -6,6 +6,7 @@ import { routing } from '@/i18n/routing';
 import { isValidLocale } from '@/i18n/config';
 import { SiteHeader } from '@/components/layout/site-header';
 import { SiteFooter } from '@/components/layout/site-footer';
+import { FeedbackButton } from '@/components/feedback/feedback-button';
 import '../globals.css';
 
 export function generateStaticParams() {
@@ -36,6 +37,7 @@ export default async function LocaleLayout({
           <SiteHeader />
           <main className="flex-1">{children}</main>
           <SiteFooter />
+          <FeedbackButton />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -34,5 +34,15 @@
     "emailLabel": "ईमेल",
     "messageLabel": "संदेश",
     "submit": "भेजें"
+  },
+  "Feedback": {
+    "trigger": "प्रतिक्रिया",
+    "triggerLabel": "प्रतिक्रिया विजेट खोलें",
+    "widgetLabel": "अपनी प्रतिक्रिया साझा करें",
+    "messageLabel": "आपकी प्रतिक्रिया (वैकल्पिक)",
+    "submit": "भेजें",
+    "cancel": "रद्द करें",
+    "close": "बंद करें",
+    "successMessage": "आपकी प्रतिक्रिया के लिए धन्यवाद!"
   }
 }
