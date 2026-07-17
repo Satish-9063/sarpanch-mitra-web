@@ -1,8 +1,10 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
+import { WhatsAppFab } from './whatsapp-fab';
 
 export function SiteFooter() {
   const t = useTranslations('Footer');
+  const tLegal = useTranslations('Legal');
 
   return (
     <footer className="border-t border-governance-navy/10 mt-16">
@@ -11,13 +13,16 @@ export function SiteFooter() {
             visible; do not remove without CEO sign-off (Section 1 of SM-WEB-001). */}
         <p>{t('neutralityNote')}</p>
         <div className="flex flex-wrap gap-4">
-          <Link href="/privacy">Privacy</Link>
-          <Link href="/terms">Terms</Link>
-          <Link href="/dpdpa-notice">DPDPA Notice</Link>
-          <Link href="/cookie-policy">Cookie Policy</Link>
+          <Link href="/privacy">{tLegal('Privacy.title')}</Link>
+          <Link href="/terms">{tLegal('Terms.title')}</Link>
+          <Link href="/dpdpa-notice">{tLegal('DpdpaNotice.title')}</Link>
+          <Link href="/cookie-policy">{tLegal('CookiePolicy.title')}</Link>
         </div>
         <p>&copy; {new Date().getFullYear()} Sariki Technologies. {t('rightsReserved')}</p>
       </div>
+
+      {/* FR-031: WhatsApp click-to-chat FAB — fixed position, visible across all pages */}
+      <WhatsAppFab />
     </footer>
   );
 }
