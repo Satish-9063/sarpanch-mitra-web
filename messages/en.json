@@ -19,8 +19,82 @@
     "neutralityNote": "Sarpanch Mitra is politically neutral infrastructure.",
     "rightsReserved": "All rights reserved."
   },
+  "Platform": {
+    "overview": {
+      "title": "Platform Overview",
+      "subtitle": "Eight integrated module families built for panchayat governance and constituency offices.",
+      "modulesHeading": "Module Families",
+      "learnMore": "Learn more",
+      "electionsEditionCta": "See Elections Edition →"
+    },
+    "module": {
+      "back": "Back to Platform"
+    },
+    "electionsEdition": {
+      "heroTitle": "Elections Edition",
+      "heroSubtitle": "Purpose-built tools for candidate and campaign coordination — from booth management to result tracking.",
+      "ctaOnboarding": "Get Started with Elections Edition",
+      "notifyHeading": "Get notified when it goes live",
+      "notifyDescription": "Elections Edition is not yet available in your region. Leave your email and we'll notify you at launch.",
+      "emailLabel": "Email address",
+      "notifySubmit": "Notify me",
+      "notifySuccess": "You're on the list. We'll be in touch."
+    }
+  },
   "LanguageSwitcher": {
     "label": "Language"
+  },
+  "Company": {
+    "About": {
+      "title": "About Sariki Technologies",
+      "subtitle": "AI-native software company headquartered in Visakhapatnam, Andhra Pradesh, India.",
+      "overviewTitle": "Who We Are",
+      "businessLinesTitle": "What We Build",
+      "teamTitle": "The Team",
+      "genAiTitle": "GenAI SDLC Programme",
+      "genAiBody": "A cohort-based intern training and product delivery engine — 28 active interns per cohort building production-grade AI software under senior mentorship."
+    },
+    "Careers": {
+      "title": "Careers",
+      "subtitle": "Help build India's civic and agri AI infrastructure.",
+      "body": "We are always looking for driven engineers, researchers, and domain experts. Express your interest and our team will reach out.",
+      "applyButton": "Apply / Express Interest"
+    },
+    "Partners": {
+      "title": "Partner with Sariki Technologies",
+      "subtitle": "Government bodies, research institutions, NGOs, and enterprises — let's build together.",
+      "body": "We partner with organisations aligned with our mission to bring AI-native governance and agricultural tools to India.",
+      "enquireButton": "Enquire About Partnership"
+    }
+  },
+  "Legal": {
+    "placeholder": "[PLACEHOLDER — legal review required]",
+    "lastUpdated": "Last updated: [PLACEHOLDER]",
+    "Privacy": {
+      "title": "Privacy Policy"
+    },
+    "Terms": {
+      "title": "Terms of Service"
+    },
+    "CookiePolicy": {
+      "title": "Cookie Policy"
+    },
+    "DpdpaNotice": {
+      "title": "DPDPA Notice",
+      "deletionTitle": "Data Deletion Request (Right to Erasure)",
+      "deletionContact": "To request deletion of your personal data:"
+    }
+  },
+  "Header": {
+    "openNow": "Open now",
+    "closedNow": "Closed",
+    "businessHours": "Mon–Sat, 9 AM–6 PM IST",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
+  },
+  "WhatsApp": {
+    "chatLabel": "Chat on WhatsApp",
+    "hoursNote": "We reply Mon–Sat, 9 AM–6 PM IST"
   },
   "Newsletter": {
     "title": "Stay updated",
@@ -34,5 +108,15 @@
     "emailLabel": "Email",
     "messageLabel": "Message",
     "submit": "Send"
+  },
+  "Feedback": {
+    "trigger": "Feedback",
+    "triggerLabel": "Open feedback widget",
+    "widgetLabel": "Share your feedback",
+    "messageLabel": "Your feedback (optional)",
+    "submit": "Send",
+    "cancel": "Cancel",
+    "close": "Close",
+    "successMessage": "Thank you for your feedback!"
   }
 }
