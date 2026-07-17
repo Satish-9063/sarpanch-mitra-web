@@ -22,6 +22,58 @@
   "LanguageSwitcher": {
     "label": "Language"
   },
+  "Company": {
+    "About": {
+      "title": "About Sariki Technologies",
+      "subtitle": "AI-native software company headquartered in Visakhapatnam, Andhra Pradesh, India.",
+      "overviewTitle": "Who We Are",
+      "businessLinesTitle": "What We Build",
+      "teamTitle": "The Team",
+      "genAiTitle": "GenAI SDLC Programme",
+      "genAiBody": "A cohort-based intern training and product delivery engine — 28 active interns per cohort building production-grade AI software under senior mentorship."
+    },
+    "Careers": {
+      "title": "Careers",
+      "subtitle": "Help build India's civic and agri AI infrastructure.",
+      "body": "We are always looking for driven engineers, researchers, and domain experts. Express your interest and our team will reach out.",
+      "applyButton": "Apply / Express Interest"
+    },
+    "Partners": {
+      "title": "Partner with Sariki Technologies",
+      "subtitle": "Government bodies, research institutions, NGOs, and enterprises — let's build together.",
+      "body": "We partner with organisations aligned with our mission to bring AI-native governance and agricultural tools to India.",
+      "enquireButton": "Enquire About Partnership"
+    }
+  },
+  "Legal": {
+    "placeholder": "[PLACEHOLDER — legal review required]",
+    "lastUpdated": "Last updated: [PLACEHOLDER]",
+    "Privacy": {
+      "title": "Privacy Policy"
+    },
+    "Terms": {
+      "title": "Terms of Service"
+    },
+    "CookiePolicy": {
+      "title": "Cookie Policy"
+    },
+    "DpdpaNotice": {
+      "title": "DPDPA Notice",
+      "deletionTitle": "Data Deletion Request (Right to Erasure)",
+      "deletionContact": "To request deletion of your personal data:"
+    }
+  },
+  "Header": {
+    "openNow": "Open now",
+    "closedNow": "Closed",
+    "businessHours": "Mon–Sat, 9 AM–6 PM IST",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
+  },
+  "WhatsApp": {
+    "chatLabel": "Chat on WhatsApp",
+    "hoursNote": "We reply Mon–Sat, 9 AM–6 PM IST"
+  },
   "Newsletter": {
     "title": "Stay updated",
     "emailLabel": "Email address",
