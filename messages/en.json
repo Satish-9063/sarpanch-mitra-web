@@ -19,6 +19,28 @@
     "neutralityNote": "Sarpanch Mitra is politically neutral infrastructure.",
     "rightsReserved": "All rights reserved."
   },
+  "Platform": {
+    "overview": {
+      "title": "Platform Overview",
+      "subtitle": "Eight integrated module families built for panchayat governance and constituency offices.",
+      "modulesHeading": "Module Families",
+      "learnMore": "Learn more",
+      "electionsEditionCta": "See Elections Edition →"
+    },
+    "module": {
+      "back": "Back to Platform"
+    },
+    "electionsEdition": {
+      "heroTitle": "Elections Edition",
+      "heroSubtitle": "Purpose-built tools for candidate and campaign coordination — from booth management to result tracking.",
+      "ctaOnboarding": "Get Started with Elections Edition",
+      "notifyHeading": "Get notified when it goes live",
+      "notifyDescription": "Elections Edition is not yet available in your region. Leave your email and we'll notify you at launch.",
+      "emailLabel": "Email address",
+      "notifySubmit": "Notify me",
+      "notifySuccess": "You're on the list. We'll be in touch."
+    }
+  },
   "LanguageSwitcher": {
     "label": "Language"
   },
@@ -86,5 +108,15 @@
     "emailLabel": "Email",
     "messageLabel": "Message",
     "submit": "Send"
+  },
+  "Feedback": {
+    "trigger": "Feedback",
+    "triggerLabel": "Open feedback widget",
+    "widgetLabel": "Share your feedback",
+    "messageLabel": "Your feedback (optional)",
+    "submit": "Send",
+    "cancel": "Cancel",
+    "close": "Close",
+    "successMessage": "Thank you for your feedback!"
   }
 }
