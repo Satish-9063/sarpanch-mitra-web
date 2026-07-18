@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/i18n/compat';
 import { BUSINESS_HOURS } from '@/lib/config';
 
 function isOpenNow(): boolean {

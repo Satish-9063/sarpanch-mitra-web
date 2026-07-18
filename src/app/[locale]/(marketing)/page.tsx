@@ -1,12 +1,14 @@
 'use client';
 
 import { type FormEvent, useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useParams } from 'react-router-dom';
+import { useTranslations } from '@/i18n/compat';
 import { Link } from '@/i18n/routing';
 
 type Persona = 'leader' | 'office' | 'party';
 
-export default function HomePage({ params }: { params: { locale: string } }) {
+export default function HomePage() {
+  const { locale } = useParams<{ locale: string }>();
   const t = useTranslations('Home');
   const [activePersona, setActivePersona] = useState<Persona>('leader');
   const [email, setEmail] = useState('');
@@ -52,13 +54,13 @@ export default function HomePage({ params }: { params: { locale: string } }) {
       return;
     }
 
-    const response = await fetch('/api/forms/newsletter', {
+    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL ?? ''}/api/forms/newsletter`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         email: email.trim(),
         name: name.trim() || undefined,
-        locale: params.locale,
+        locale: locale ?? 'en',
         audienceSegment: audienceSegment || undefined,
       }),
     });

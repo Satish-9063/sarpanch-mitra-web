@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/i18n/compat';
 import { WHATSAPP_CHAT_URL } from '@/lib/config';
 
 export function WhatsAppFab() {

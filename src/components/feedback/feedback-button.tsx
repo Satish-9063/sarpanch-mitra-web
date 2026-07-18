@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/i18n/compat';
 
 type State = 'idle' | 'open' | 'submitting' | 'success';
 
@@ -13,7 +13,7 @@ export function FeedbackButton() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setState('submitting');
-    await fetch('/api/forms/feedback', {
+    await fetch(`${import.meta.env.VITE_API_BASE_URL ?? ''}/api/forms/feedback`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message }),

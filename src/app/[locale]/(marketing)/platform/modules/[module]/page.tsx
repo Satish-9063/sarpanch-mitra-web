@@ -1,25 +1,17 @@
-import { notFound } from 'next/navigation';
-import { getTranslations } from 'next-intl/server';
+import { useParams } from 'react-router-dom';
+import { useTranslations } from '@/i18n/compat';
 import { Link } from '@/i18n/routing';
-import { modules, getModuleBySlug } from '@/lib/modules';
+import { getModuleBySlug } from '@/lib/modules';
+import { NotFoundPage } from '@/pages/not-found';
 
-export function generateStaticParams() {
-  return modules.map((m) => ({ module: m.slug }));
-}
-
-export default async function ModulePage({
-  params,
-}: {
-  params: Promise<{ module: string }>;
-}) {
-  const { module: slug } = await params;
-  const mod = getModuleBySlug(slug);
+export default function ModulePage() {
+  const { module: slug } = useParams<{ module: string }>();
+  const t = useTranslations('Platform');
+  const mod = slug ? getModuleBySlug(slug) : undefined;
 
   if (!mod) {
-    notFound();
+    return <NotFoundPage />;
   }
-
-  const t = await getTranslations('Platform');
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">

@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/i18n/compat';
 import { Link } from '@/i18n/routing';
 import { modules } from '@/lib/modules';
 

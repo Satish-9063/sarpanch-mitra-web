@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/i18n/compat';
 import { Link } from '@/i18n/routing';
 
 const NAV_LINKS = [
