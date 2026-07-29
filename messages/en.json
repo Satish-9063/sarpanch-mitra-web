@@ -92,7 +92,19 @@
   },
   "Footer": {
     "neutralityNote": "Sarpanch Mitra is politically neutral infrastructure.",
-    "rightsReserved": "All rights reserved."
+    "rightsReserved": "All rights reserved.",
+    "tagline": "Built for the Sarpanches building Viksit Bharat.",
+    "navVision": "Vision 2047",
+    "navTools": "Tools",
+    "navAi": "AI",
+    "navAp2026": "AP 2026",
+    "navJoin": "Join",
+    "navContact": "Contact",
+    "legalPrivacy": "Privacy Policy",
+    "legalTerms": "Terms",
+    "legalNeutrality": "Political Neutrality Statement",
+    "languageLabel": "Language",
+    "languageComingSoon": "coming soon"
   },
   "Platform": {
     "overview": {
@@ -193,5 +205,29 @@
     "cancel": "Cancel",
     "close": "Close",
     "successMessage": "Thank you for your feedback!"
+  },
+  "Join": {
+    "headline": "Ready to lead differently?",
+    "subhead": "Tell us about your panchayat and we'll get you set up — in Telugu, Hindi, or English, whichever you're comfortable with.",
+    "nameLabel": "Name",
+    "panchayatLabel": "Panchayat / village",
+    "districtLabel": "District",
+    "stateLabel": "State",
+    "statePlaceholder": "Select your state",
+    "phoneLabel": "Phone number",
+    "phoneError": "Please enter a valid 10-digit Indian mobile number.",
+    "languageLabel": "Preferred language",
+    "languagePlaceholder": "Select a language",
+    "languageEn": "English",
+    "languageTe": "Telugu",
+    "languageHi": "Hindi",
+    "consentLabel": "I agree to be contacted by Sarpanch Mitra about early access.",
+    "consentTermsLink": "View consent terms",
+    "consentError": "Please confirm your consent before submitting.",
+    "submitLabel": "Request early access",
+    "whatsappLabel": "Talk to us on WhatsApp",
+    "successMessage": "Thank you. We'll be in touch shortly.",
+    "errorGeneric": "Something went wrong. Please try again.",
+    "requiredError": "This field is required."
   }
 }

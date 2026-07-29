@@ -1,224 +1,179 @@
-'use client';
-
-import { type FormEvent, useState } from 'react';
-import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 
-type Persona = 'leader' | 'office' | 'party';
+const checkItems = [
+  'Track every citizen request from complaint to resolution - nothing falls through the cracks.',
+  'Know what schemes your villagers are eligible for, before they even ask.',
+  'See what\'s pending, what\'s overdue, and what needs your attention today - in one place.',
+  'Keep a record of everything you\'ve delivered, so your work speaks for itself.',
+] as const;
 
-export default function HomePage({ params }: { params: { locale: string } }) {
-  const t = useTranslations('Home');
-  const [activePersona, setActivePersona] = useState<Persona>('leader');
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [audienceSegment, setAudienceSegment] = useState('');
-  const [status, setStatus] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
-
-  const personaCopy = {
-    leader: {
-      badge: t('heroLeaderBadge'),
-      title: t('heroLeaderTitle'),
-      subtitle: t('heroLeaderSubtitle'),
-      points: [t('heroLeaderPoint1'), t('heroLeaderPoint2'), t('heroLeaderPoint3')],
-    },
-    office: {
-      badge: t('heroOfficeBadge'),
-      title: t('heroOfficeTitle'),
-      subtitle: t('heroOfficeSubtitle'),
-      points: [t('heroOfficePoint1'), t('heroOfficePoint2'), t('heroOfficePoint3')],
-    },
-    party: {
-      badge: t('heroPartyBadge'),
-      title: t('heroPartyTitle'),
-      subtitle: t('heroPartySubtitle'),
-      points: [t('heroPartyPoint1'), t('heroPartyPoint2'), t('heroPartyPoint3')],
-    },
-  };
-
-  const valuePillars = [
-    { title: t('valuePillar1Title'), description: t('valuePillar1Body') },
-    { title: t('valuePillar2Title'), description: t('valuePillar2Body') },
-    { title: t('valuePillar3Title'), description: t('valuePillar3Body') },
-  ];
-
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setError(null);
-    setStatus(null);
-
-    if (!email.trim()) {
-      setError(t('newsletterEmailRequired'));
-      return;
-    }
-
-    const response = await fetch('/api/forms/newsletter', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email: email.trim(),
-        name: name.trim() || undefined,
-        locale: params.locale,
-        audienceSegment: audienceSegment || undefined,
-      }),
-    });
-
-    const data = await response.json().catch(() => null);
-
-    if (!response.ok) {
-      setError(data?.error ?? t('newsletterGenericError'));
-      return;
-    }
-
-    setStatus(t('newsletterSuccessMessage'));
-    setEmail('');
-    setName('');
-    setAudienceSegment('');
-  };
-
+function CheckIcon() {
   return (
-    <main className="mx-auto flex max-w-6xl flex-col gap-16 px-4 py-16">
-      <section className="rounded-3xl border border-governance-navy/10 bg-white p-8 shadow-sm md:p-12">
-        <div className="flex flex-wrap gap-3">
-          {(['leader', 'office', 'party'] as Persona[]).map((persona) => (
-            <button
-              key={persona}
-              type="button"
-              onClick={() => setActivePersona(persona)}
-              className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
-                activePersona === persona
-                  ? 'border-karyakarta-saffron bg-karyakarta-saffron/15 text-governance-navy'
-                  : 'border-governance-navy/10 text-governance-navy/80 hover:border-governance-navy/30'
-              }`}
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      className="h-3.5 w-3.5"
+      aria-hidden="true"
+    >
+      <path
+        fillRule="evenodd"
+        d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+export default function HomePage() {
+  return (
+    <div className="flex flex-col">
+      {/* ── Hero ────────────────────────────────────────────────────────────── */}
+      <section className="w-full bg-governance-navy text-white">
+        <div className="mx-auto max-w-6xl px-4 py-20 md:py-28">
+          <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">
+            A new generation is leading India&apos;s villages.
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-white/80">
+            Sarpanch Mitra gives every Sarpanch the tools, knowledge, and AI
+            support to lead with confidence&nbsp;&mdash; and build the village
+            India needs for 2047.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link
+              href="/vision-2047"
+              className="rounded border border-white/40 px-6 py-3 font-medium text-white transition hover:bg-white/10"
             >
-              {t(`hero${persona.charAt(0).toUpperCase() + persona.slice(1)}Badge`)}
-            </button>
-          ))}
-        </div>
-
-        <div className="mt-8 grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-karyakarta-saffron">
-              {personaCopy[activePersona].badge}
-            </p>
-            <h1 className="mt-3 text-3xl font-semibold text-governance-navy md:text-5xl">
-              {personaCopy[activePersona].title}
-            </h1>
-            <p className="mt-4 max-w-2xl text-lg text-governance-navy/80">
-              {personaCopy[activePersona].subtitle}
-            </p>
-            <ul className="mt-6 space-y-2 text-left text-governance-navy/80">
-              {personaCopy[activePersona].points.map((point) => (
-                <li key={point} className="flex items-start gap-2">
-                  <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-karyakarta-saffron" />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href="/demo"
-                className="rounded bg-karyakarta-saffron px-5 py-3 font-medium text-governance-navy"
-              >
-                {t('ctaBookDemo')}
-              </Link>
-              <Link
-                href="/platform"
-                className="rounded border border-governance-navy/20 px-5 py-3 font-medium text-governance-navy"
-              >
-                {t('ctaLearnMore')}
-              </Link>
-            </div>
-          </div>
-
-          <div className="rounded-2xl bg-governance-navy p-6 text-white">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-karyakarta-saffron">
-              {t('heroInsightLabel')}
-            </p>
-            <h2 className="mt-3 text-xl font-semibold">{t('heroInsightTitle')}</h2>
-            <p className="mt-3 text-sm leading-7 text-white/80">{t('heroInsightBody')}</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="grid gap-6 md:grid-cols-3">
-        {valuePillars.map((pillar) => (
-          <article key={pillar.title} className="rounded-2xl border border-governance-navy/10 bg-white p-6 shadow-sm">
-            <h3 className="text-lg font-semibold text-governance-navy">{pillar.title}</h3>
-            <p className="mt-2 text-sm leading-7 text-governance-navy/80">{pillar.description}</p>
-          </article>
-        ))}
-      </section>
-
-      <section className="rounded-3xl border border-governance-navy/10 bg-governance-navy/5 p-8">
-        <h2 className="text-2xl font-semibold text-governance-navy">{t('socialProofTitle')}</h2>
-        <p className="mt-3 max-w-3xl text-governance-navy/80">{t('socialProofPlaceholder')}</p>
-      </section>
-
-      <section className="rounded-3xl border border-governance-navy/10 bg-white p-8 shadow-sm">
-        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-karyakarta-saffron">
-              {t('newsletterEyebrow')}
-            </p>
-            <h2 className="mt-3 text-2xl font-semibold text-governance-navy">{t('newsletterTitle')}</h2>
-            <p className="mt-3 text-governance-navy/80">{t('newsletterDescription')}</p>
-          </div>
-
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label htmlFor="newsletter-name" className="mb-2 block text-sm font-medium text-governance-navy">
-                {t('newsletterNameLabel')}
-              </label>
-              <input
-                id="newsletter-name"
-                name="name"
-                value={name}
-                onChange={(event) => setName(event.target.value)}
-                className="w-full rounded border border-governance-navy/20 px-3 py-2"
-              />
-            </div>
-            <div>
-              <label htmlFor="newsletter-email" className="mb-2 block text-sm font-medium text-governance-navy">
-                {t('newsletterEmailLabel')}
-              </label>
-              <input
-                id="newsletter-email"
-                name="email"
-                required
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                className="w-full rounded border border-governance-navy/20 px-3 py-2"
-              />
-            </div>
-            <div>
-              <label htmlFor="newsletter-audience" className="mb-2 block text-sm font-medium text-governance-navy">
-                {t('newsletterAudienceLabel')}
-              </label>
-              <select
-                id="newsletter-audience"
-                name="audienceSegment"
-                value={audienceSegment}
-                onChange={(event) => setAudienceSegment(event.target.value)}
-                className="w-full rounded border border-governance-navy/20 px-3 py-2"
-              >
-                <option value="">{t('newsletterAudiencePlaceholder')}</option>
-                <option value="leader">{t('heroLeaderBadge')}</option>
-                <option value="office">{t('heroOfficeBadge')}</option>
-                <option value="party">{t('heroPartyBadge')}</option>
-              </select>
-            </div>
-            <button
-              type="submit"
-              className="rounded bg-governance-navy px-5 py-3 font-medium text-white"
+              See how it works
+            </Link>
+            <Link
+              href="/join"
+              className="rounded bg-karyakarta-saffron px-6 py-3 font-medium text-governance-navy transition hover:bg-karyakarta-saffron-700"
             >
-              {t('newsletterSubmit')}
-            </button>
-            {error ? <p className="text-sm text-red-600">{error}</p> : null}
-            {status ? <p className="text-sm text-governance-navy/80">{status}</p> : null}
-          </form>
+              Join the movement
+            </Link>
+          </div>
         </div>
       </section>
-    </main>
+
+      {/* ── Section 1 · The Moment ──────────────────────────────────────────── */}
+      <section className="mx-auto w-full max-w-6xl px-4 py-16 md:py-20">
+        <h3 className="text-2xl font-semibold text-governance-navy md:text-3xl">
+          Villages are where Viksit Bharat is won.
+        </h3>
+        <p className="mt-5 max-w-3xl leading-8 text-governance-navy/80">
+          India&apos;s 2047 vision for a developed nation rests on 2.5 lakh gram
+          panchayats. The Sarpanch is not a ceremonial post&nbsp;&mdash; it is
+          the frontline of India&apos;s development story. When a village
+          thrives, the nation moves forward.
+        </p>
+      </section>
+
+      {/* ── Section 2 · Generational Shift ─────────────────────────────────── */}
+      <section className="w-full bg-governance-navy/5">
+        <div className="mx-auto max-w-6xl px-4 py-16 md:py-20">
+          <h3 className="text-2xl font-semibold text-governance-navy md:text-3xl">
+            You are not the Sarpanch your predecessor was.
+          </h3>
+          <p className="mt-5 max-w-3xl leading-8 text-governance-navy/80">
+            Today&apos;s Sarpanches are younger, more digitally fluent, and more
+            ambitious for their villages than any generation before. But most
+            are still running a panchayat the same way it was run twenty years
+            ago&nbsp;&mdash; paper registers, personal diaries, and WhatsApp
+            groups standing in for a proper system.
+          </p>
+          <p className="mt-6 max-w-3xl italic leading-8 text-governance-navy/80">
+            That gap between ambition and tools is not your failure. It is the
+            problem Sarpanch Mitra exists to close.
+          </p>
+        </div>
+      </section>
+
+      {/* ── Section 3 · The Gap (data-backed) ──────────────────────────────── */}
+      <section className="mx-auto w-full max-w-6xl px-4 py-16 md:py-20">
+        <h3 className="text-2xl font-semibold text-governance-navy md:text-3xl">
+          Only 7 in 100 Sarpanches choose their own priorities.
+        </h3>
+        <p className="mt-5 max-w-3xl leading-8 text-governance-navy/80">
+          A survey of 800 panchayats found that just 7% of Sarpanches
+          independently set their own development-planning themes&nbsp;&mdash;
+          the rest follow priorities set elsewhere. And panchayats raise only
+          1.1% of their revenue from their own local sources. Real
+          self-reliance&nbsp;&mdash; real Atmanirbhar Panchayats&nbsp;&mdash;
+          starts with Sarpanches who have the tools to lead independently.
+        </p>
+      </section>
+
+      {/* ── Section 4 · What Sarpanch Mitra Gives You ──────────────────────── */}
+      <section className="w-full bg-governance-navy/5">
+        <div className="mx-auto max-w-6xl px-4 py-16 md:py-20">
+          <h3 className="text-2xl font-semibold text-governance-navy md:text-3xl">
+            Everything you need to run your panchayat like an institution.
+          </h3>
+          <ul className="mt-8 max-w-3xl space-y-5" role="list">
+            {checkItems.map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-karyakarta-saffron text-governance-navy">
+                  <CheckIcon />
+                </span>
+                <span className="leading-8 text-governance-navy/80">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-10">
+            <Link
+              href="/tools"
+              className="inline-block rounded bg-karyakarta-saffron px-6 py-3 font-medium text-governance-navy transition hover:bg-karyakarta-saffron-700"
+            >
+              Explore the tools
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Section 5 · AI as Enabler ───────────────────────────────────────── */}
+      <section className="mx-auto w-full max-w-6xl px-4 py-16 md:py-20">
+        <h3 className="text-2xl font-semibold text-governance-navy md:text-3xl">
+          AI handles the paperwork. You handle the leadership.
+        </h3>
+        <p className="mt-5 max-w-3xl leading-8 text-governance-navy/80">
+          You didn&apos;t become a Sarpanch to spend your evenings drafting
+          messages and sorting complaints. Sarpanch Mitra&apos;s AI quietly
+          takes care of the repetitive work&nbsp;&mdash; categorising requests,
+          drafting citizen updates, matching villagers to the right government
+          scheme&nbsp;&mdash; so your time goes where it matters: with your
+          people.
+        </p>
+      </section>
+
+      {/* ── Section 6 · The Invitation ──────────────────────────────────────── */}
+      <section className="w-full bg-governance-navy text-white">
+        <div className="mx-auto max-w-6xl px-4 py-16 md:py-20">
+          <h3 className="text-2xl font-semibold md:text-3xl">
+            Start with the 2026 Andhra Pradesh Panchayat Elections.
+          </h3>
+          <p className="mt-5 max-w-2xl leading-8 text-white/80">
+            Sarpanch Mitra&apos;s Elections Edition is built for candidates
+            standing in the 2026 AP panchayat elections&nbsp;&mdash; a simple,
+            mobile-first tool to organise your campaign and prepare to lead
+            from day one.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link
+              href="/ap-2026"
+              className="rounded bg-karyakarta-saffron px-6 py-3 font-medium text-governance-navy transition hover:bg-karyakarta-saffron-700"
+            >
+              Join the AP 2026 pilot
+            </Link>
+            <Link
+              href="/join"
+              className="rounded border border-white/40 px-6 py-3 font-medium text-white transition hover:bg-white/10"
+            >
+              Request early access
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
